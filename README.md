@@ -12,7 +12,7 @@ A boilerplate application for building web apps using express.
 
 **Client:** EJS, Bootstrap
 
-**Server:** Node, Express
+**Server:** Node, Express, Mongoose JS
 
 
 ## Installation
