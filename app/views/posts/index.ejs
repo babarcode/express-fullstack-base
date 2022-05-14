@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include("../partials/head"); %>
+</head>
+<body class="container">
+
+<header>
+    <%- include("../partials/headers"); %>
+</header>
+
+<main>
+    <div class="jumbotron">
+        <h1>Post</h1>
+        <a href="/post/create"><div class="btn btn-primary">Create</div></a>
+    </div>
+    <% if(success == 0){ %>
+        <div class="alert alert-danger">Failed to create post!</div>
+    <% }else if(success == 1){ %>
+        <div class="alert alert-success">Successfully created post!</div>
+    <% } %>
+    <table class="table table-striped">
+        <tr>
+            <th>Title</th>
+            <th>Content</th>
+        </tr>
+        <% data.forEach((user) => { %>
+        <tr>
+            <td><%= user.title %></td>
+            <td><%= user.content %></td>
+        </tr>
+        <% }) %>
+    </table>
+</main>
+
+<footer>
+    <%- include("../partials/footer"); %>
+</footer>
+
+</body>
+</html>

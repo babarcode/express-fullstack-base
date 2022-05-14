@@ -1,0 +1,7 @@
+{
+    "host": "localhost:27017",
+    "database": "express",
+    "authSource": "",
+    "user": "",
+    "pass": ""
+}
