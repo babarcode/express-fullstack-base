@@ -19,6 +19,19 @@ A boilerplate application for building web apps using express.
 
 ```bash
   npm install
-  npm start
 ```
     
+## Seeding Admin User
+
+```bash
+  node db/seeding.js
+
+  user: admin
+  pass: admin
+```
+
+## Run App
+
+```bash
+  npm start
+```

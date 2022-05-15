@@ -34,7 +34,7 @@ const init = async () => {
         return mongoose_client
     } catch (error) {
         console.log(`Cannot connect to database! | ${mongoose_config.host} ~ ${mongoose_config.database}`);
-        console.log(error.stack)
+        console.log(error.stack);
         process.exit(1);
     }
 

@@ -1,3 +1,4 @@
 {
-    "port": "8080"
+    "port": "8080",
+    "session_secret": "r8q,+&1LM3)CD*zAGpx1xm{NeQhc;#"
 }
