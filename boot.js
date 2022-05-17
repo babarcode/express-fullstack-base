@@ -1,7 +1,6 @@
 import express from 'express';
 import session from 'express-session';
 import bodyParser from 'body-parser';
-import passport from 'passport';
 import router from './config/routes.js';
 import config from './config/config.js';
 import * as mongoose from './config/mongoose.js';
