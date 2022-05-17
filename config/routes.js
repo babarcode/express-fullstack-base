@@ -3,12 +3,18 @@ import passport from 'passport';
 import connectEnsureLogin from 'connect-ensure-login';
 const router = express.Router();
 
+import User from '../app/models/user.js';
 import HomeController from '../app/controllers/home.js';
 import PostController from '../app/controllers/post.js';
 
+router.use(passport.initialize());
+router.use(passport.session());
+passport.use(User.createStrategy());
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
 router.use(function(req, res, next){
     res.locals.user = req.user;
-    console.log(`Loggedin User: ${res.locals.user}`);
     next();
 });
 
@@ -21,7 +27,6 @@ router.get('/about', HomeController.about);
 // login page
 router.get('/login', HomeController.login);
 router.post('/login', passport.authenticate('local', { failureRedirect: '/?login=false' }),  function(req, res) {
-	console.log(`Logged in user: ${req.user.username}`)
 	res.redirect('/?login=true');
 });
 

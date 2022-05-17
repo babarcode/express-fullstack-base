@@ -5,7 +5,6 @@ import passport from 'passport';
 import router from './config/routes.js';
 import config from './config/config.js';
 import * as mongoose from './config/mongoose.js';
-import User from './app/models/user.js';
 
 const app = express();
 const PORT = config.port || 8000;
@@ -22,12 +21,6 @@ app.set('views', './app/views');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
-
-app.use(passport.initialize());
-app.use(passport.session());
-passport.use(User.createStrategy());
-passport.serializeUser(User.serializeUser());
-passport.deserializeUser(User.deserializeUser());
 
 app.use('/', router);
 
