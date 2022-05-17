@@ -23,11 +23,13 @@
         <tr>
             <th>Title</th>
             <th>Content</th>
+            <th>Action</th>
         </tr>
         <% data.forEach((user) => { %>
         <tr>
             <td><%= user.title %></td>
             <td><%= user.content %></td>
+            <td><a href="/post/delete?id=<%= user.id %>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
         </tr>
         <% }) %>
     </table>

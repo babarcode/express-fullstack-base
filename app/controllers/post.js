@@ -39,6 +39,19 @@ class PostController{
         }
 
     }
+
+    delete(req, res) {
+
+        let id = req.query.id;
+        PostService.delete(id, (err, docs) => {
+            if(err){
+                console.log("##### ERROR DELETE POST");
+            }
+
+            res.redirect("/post");
+        });
+
+    }
 }
 
 export default new PostController();

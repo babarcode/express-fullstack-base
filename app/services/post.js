@@ -12,6 +12,12 @@ class PostService{
             callback(err, doc)
         });
     }
+
+    delete(id, callback){
+        Post.findByIdAndDelete(id, (err, doc) => {
+            callback(err, doc)
+        });
+    }
 }
 
 export default new PostService();
