@@ -41,7 +41,11 @@ router.get('/post', connectEnsureLogin.ensureLoggedIn(), PostController.index);
 router.get('/post/create', connectEnsureLogin.ensureLoggedIn(), PostController.create);
 router.post('/post/create', connectEnsureLogin.ensureLoggedIn(), PostController.create);
 
+// edit post
+router.get('/post/edit/:id', connectEnsureLogin.ensureLoggedIn(), PostController.edit);
+router.post('/post/edit/:id', connectEnsureLogin.ensureLoggedIn(), PostController.edit);
+
 // delete post
-router.get('/post/delete', connectEnsureLogin.ensureLoggedIn(), PostController.delete);
+router.get('/post/delete/:id', connectEnsureLogin.ensureLoggedIn(), PostController.delete);
 
 export default router;

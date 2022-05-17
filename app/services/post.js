@@ -13,6 +13,18 @@ class PostService{
         });
     }
 
+    find(id, callback){
+        Post.findById(id, (err, doc) => {
+            callback(err, doc)
+        });
+    }
+
+    update(id, title, content, callback){
+        Post.findByIdAndUpdate(id, {title: title, content: content}, (err, doc) => {
+            callback(err, doc)
+        });
+    }
+
     delete(id, callback){
         Post.findByIdAndDelete(id, (err, doc) => {
             callback(err, doc)

@@ -15,9 +15,9 @@
         <a href="/post/create"><div class="btn btn-primary">Create</div></a>
     </div>
     <% if(success == 0){ %>
-        <div class="alert alert-danger">Failed to create post!</div>
+        <div class="alert alert-danger">Failed to save post!</div>
     <% }else if(success == 1){ %>
-        <div class="alert alert-success">Successfully created post!</div>
+        <div class="alert alert-success">Successfully save post!</div>
     <% } %>
     <table class="table table-striped">
         <tr>
@@ -29,7 +29,10 @@
         <tr>
             <td><%= user.title %></td>
             <td><%= user.content %></td>
-            <td><a href="/post/delete?id=<%= user.id %>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a></td>
+            <td>
+                <a href="/post/edit/<%= user.id %>">Edit</a> 
+                <a href="/post/delete/<%= user.id %>" onclick="return confirm('Are you sure you want to delete this item?');">Delete</a>
+            </td>
         </tr>
         <% }) %>
     </table>

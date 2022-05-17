@@ -40,9 +40,38 @@ class PostController{
 
     }
 
+    edit(req, res) {
+
+        if(req.method == "GET")
+        {
+            let success = +req.query.success;
+            let id = req.params.id;
+            
+            PostService.find(id, (err, docs) => {
+                res.render('posts/edit', {success: success, data: docs});
+            })
+        }
+        else
+        {
+            let id = req.params.id;
+            let title = req.body.title;
+            let content = req.body.content;
+
+            PostService.update(id, title, content, (err, docs) => {
+                if(err){
+                    console.log("##### ERROR EDIT POST");
+                    res.redirect("/post?success=0");
+                }
+    
+                res.redirect("/post?success=1");
+            });
+        }
+
+    }
+
     delete(req, res) {
 
-        let id = req.query.id;
+        let id = req.params.id;
         PostService.delete(id, (err, docs) => {
             if(err){
                 console.log("##### ERROR DELETE POST");
